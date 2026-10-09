@@ -46,7 +46,6 @@ $etudiants = [
     ["nom" => "Sassi",     "prenom" => "Walid",   "age" => 22, "formation" => "Informatique", "moyenne" => 7],
 ];
 
-// 1. Afficher tous les étudiants
 function afficherEtudiants($liste) {
     echo "<table>";
     echo "<tr><th>Nom</th><th>Prénom</th><th>Âge</th><th>Formation</th><th>Moyenne</th></tr>";
@@ -62,7 +61,6 @@ function afficherEtudiants($liste) {
     echo "</table>";
 }
 
-// 2. Calculer la moyenne de la classe
 function moyenneClasse($liste) {
     $somme = 0;
     foreach ($liste as $e) {
@@ -71,7 +69,6 @@ function moyenneClasse($liste) {
     return $somme / count($liste);
 }
 
-// 3. Compter les admis
 function compterAdmis($liste) {
     $c = 0;
     foreach ($liste as $e) {
@@ -81,8 +78,6 @@ function compterAdmis($liste) {
     }
     return $c;
 }
-
-// 4. Rechercher un étudiant
 function rechercherEtudiant($liste, $nom) {
     foreach ($liste as $e) {
         if ($e["nom"] === $nom) {
@@ -91,8 +86,6 @@ function rechercherEtudiant($liste, $nom) {
     }
     return null;
 }
-
-// 5. Filtrer selon une moyenne minimale
 function filtrerParMoyenne($liste, $min) {
     $resultat = [];
     foreach ($liste as $e) {
@@ -103,8 +96,6 @@ function filtrerParMoyenne($liste, $min) {
     return $resultat;
 }
 
-// ----- Affichage -----
-
 echo "<h2>Liste des étudiants</h2>";
 afficherEtudiants($etudiants);
 
@@ -114,7 +105,7 @@ echo "<p>Moyenne de la classe : " . round(moyenneClasse($etudiants), 2) . "</p>"
 echo "<p>Nombre d'admis : " . compterAdmis($etudiants) . "</p>";
 echo "</div>";
 
-// Recherche par nom
+
 if (isset($_GET['nom']) && $_GET['nom'] !== "") {
     $nom = $_GET['nom'];
     $trouve = rechercherEtudiant($etudiants, $nom);
@@ -127,7 +118,7 @@ if (isset($_GET['nom']) && $_GET['nom'] !== "") {
     }
 }
 
-// Filtre par moyenne minimale
+
 if (isset($_GET['min']) && $_GET['min'] !== "") {
     $min = $_GET['min'];
 
