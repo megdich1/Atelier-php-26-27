@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 const FICHIER_UTILISATEURS = __DIR__ . '/data/utilisateurs.php';
@@ -21,3 +22,21 @@ function sauvegarder_utilisateurs(array $utilisateurs): void
     $code = "<?php\nreturn " . var_export($utilisateurs, true) . ";\n";
     file_put_contents(FICHIER_UTILISATEURS, $code, LOCK_EX);
 }
+=======
+<?php
+require_once 'utilisateur.php';
+
+function estConnecte()
+{
+    return isset($_SESSION['connecte'])
+        && $_SESSION['connecte'] === true;
+}
+
+function protegerPage()
+{
+    if (!estConnecte()) {
+        header("Location: login.php");
+        exit;
+    }
+}
+>>>>>>> 94bfa301161c6d3d4bae9e99cd812782c8468004
