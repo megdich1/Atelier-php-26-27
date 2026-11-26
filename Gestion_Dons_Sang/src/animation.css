@@ -1,0 +1,30 @@
+@keyframes onLoadEvent {
+    0% {
+        opacity: 0;
+        transform: translateY(5%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional: Add vendor prefixes for better browser support */
+@-webkit-keyframes onLoadEvent {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(5%);
+        transform: translateY(5%);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+form, div {
+    animation: onLoadEvent 1.5s ease-out forwards;
+    /* Vendor prefixes */
+    -webkit-animation: onLoadEvent 1.5s ease-out forwards;
+}
